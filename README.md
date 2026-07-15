@@ -1,4 +1,4 @@
-# ⚛️ React Learning Journey
+# ⚛️ React Docs
 
 ## This repository contains my daily React learning notes and practice code.
 
@@ -12,5 +12,8 @@
 
 ## Day 03
     | React Components, JSX, JSX Transformation, Reconciliation, Diffing Algorithm, Render Phase, Commit Phase, React Fiber Architecture |
+
+## Day 04
+    React State, useState Hook, State Updates, Component Re-rendering, Bail Out Optimization, React Batching
 
 More days will be added as I continue learning React. 🚀
