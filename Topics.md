@@ -10,5 +10,7 @@
 ## Day 02
     React Introduction, Vite, React Project Setup, Project Structure, npm, Dependencies, Development Server 
 
+## Day 03
+    | React Components, JSX, JSX Transformation, Reconciliation, Diffing Algorithm, Render Phase, Commit Phase, React Fiber Architecture |
 
 More days will be added as I continue learning React. 🚀
