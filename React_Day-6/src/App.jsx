@@ -7,6 +7,7 @@ import FormHandlingOptimizeApproach from "./components/FormHandlingOptimizeAppro
 const App = () => {
   return (
     <div className="bg-black text-white h-full flex flex-col gap-10 p-5">
+      
       <Rendering />
       <hr />
       <FormHandlingBruteForceApproach />
