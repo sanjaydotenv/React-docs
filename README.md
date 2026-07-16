@@ -17,7 +17,10 @@
     React State, useState Hook, State Updates, Component Re-rendering, Bail Out Optimization, React Batching
 
 ## Day 05
-    State and Data Rendering, Components Reusability, Props  
+    State and Data Rendering, Components Reusability, Props
+
+## Day 06
+    Input Handling, Brute Force Approach, Better Approach, Optimized Approach
 
 
 More days will be added as I continue learning React. 🚀
