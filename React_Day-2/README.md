@@ -10,6 +10,7 @@ React makes the development process faster because we can reuse components and w
 
 We can use React in different ways, such as:
 
+
 * Using a CDN
 * Installing it with npm
 
