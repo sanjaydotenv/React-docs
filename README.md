@@ -22,6 +22,7 @@
 ## Day 06
     Input Handling, Brute Force Approach, Better Approach, Optimized Approach
 
-
+## Day 07
+    Data Rendering, State LiftingUp
 
 More days will be added as I continue learning React. 🚀
