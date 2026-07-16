@@ -70,6 +70,7 @@ it is transformed into code similar to:
 React.createElement("span", null, "I am a span");
 ```
 
+
 ---
 
 # Who Converts JSX?
