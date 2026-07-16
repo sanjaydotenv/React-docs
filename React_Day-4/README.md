@@ -1,12 +1,90 @@
-# React + Vite
+# React `useState` Hook
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+`useState` is a React Hook that is used to manage state in a functional component.
 
-Currently, two official plugins are available:
+A **state** is simply a piece of data that can change over time. For example:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Counter value
+- User name
+- Theme (Dark / Light)
+- Login status
 
-## Expanding the ESLint configuration
+Whenever the state changes, React automatically updates the UI.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Syntax
+
+```jsx
+const [state, setState] = useState(initialValue);
+```
+
+It returns two values:
+
+- `state` → Current state value.
+- `setState` → Function used to update the state.
+
+---
+
+## Example
+
+```jsx
+import { useState } from "react";
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <>
+      <h1>{count}</h1>
+
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+    </>
+  );
+}
+```
+
+### Explanation
+
+- `count` stores the current value.
+- `setCount()` updates the value.
+- When the state changes, React re-renders the component and updates the UI.
+
+---
+
+## React Optimization
+
+If you update the state with the **same value**, React skips the re-render because nothing has changed.
+
+```jsx
+setCount(0); // Current value is already 0
+```
+
+This optimization is called **Bail Out**.
+
+---
+
+## Batching
+
+React combines multiple state updates into a single render.
+
+```jsx
+setName("Mayur");
+setAge(20);
+setTheme("Dark");
+```
+
+Instead of rendering three times, React renders only once. This is called **Batching**, and it makes React faster.
+
+---
+
+## Key Points
+
+- `useState` is used to manage state.
+- State is data that can change over time.
+- It returns the current state and a function to update it.
+- Updating the state re-renders the component.
+- React skips re-rendering if the value doesn't change (Bail Out).
+- React batches multiple state updates into a single render for better performance.

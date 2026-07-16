@@ -16,4 +16,8 @@
 ## Day 04
     React State, useState Hook, State Updates, Component Re-rendering, Bail Out Optimization, React Batching
 
+## Day 05
+    State and Data Rendering, Components Reusability, Props  
+
+
 More days will be added as I continue learning React. 🚀
