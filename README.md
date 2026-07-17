@@ -36,4 +36,8 @@
 
     useRef, ReactHookForm, Collect Data Without Re-rendering
 
+## Day 09
+
+    React Hook Form, Form Validation
+
 More days will be added as I continue learning React. 🚀
