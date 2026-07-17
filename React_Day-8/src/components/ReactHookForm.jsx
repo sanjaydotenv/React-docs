@@ -29,28 +29,28 @@ const ReactHookForm = () => {
         >
           <input
             {...register("name")}
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+            className="w-full border  rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
             type="text"
             placeholder="Full Name"
           />
 
           <input
             {...register("email")}
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+            className="w-full border  rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
             type="email"
             placeholder="Email Address"
           />
 
           <input
             {...register("password")}
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+            className="w-full border  rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
             type="password"
             placeholder="Password"
           />
 
           <input
             {...register("image")}
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+            className="w-full border  rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
             type="text"
             placeholder="Image URL"
           />

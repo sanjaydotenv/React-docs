@@ -39,14 +39,14 @@ const UseRefForm = () => {
             ref={(e) => (formData.current.name = e)}
             type="text"
             placeholder="Product Name"
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+            className="w-full border  rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
           />
 
           <input
             ref={(e) => (formData.current.price = e)}
             type="text"
             placeholder="Price"
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+            className="w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
           />
 
           <div>
@@ -56,7 +56,7 @@ const UseRefForm = () => {
 
             <select
               ref={(e) => (formData.current.category = e)}
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition bg-white"
+              className="w-full border  rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition bg-white"
             >
               <option value="MENS">👔 MENS</option>
               <option value="WOMEN">👗 WOMEN</option>
@@ -68,7 +68,7 @@ const UseRefForm = () => {
             ref={(e) => (formData.current.image = e)}
             type="text"
             placeholder="Image URL"
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+            className="w-full border  rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
           />
 
           <button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition duration-300">
