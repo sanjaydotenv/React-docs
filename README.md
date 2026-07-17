@@ -40,4 +40,8 @@
 
     React Hook Form, Form Validation
 
+## Day 10
+
+    CRUB project With React Hook Form, Create Read Update Delete
+
 More days will be added as I continue learning React. 🚀
