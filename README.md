@@ -48,4 +48,10 @@
 
     useContext Hook, Share Data anywhere without prop Drilling
 
+## Day 12
+
+    useEffect Hook, Handle Side Effects, API Call, Intervals, Event Listeners
+
+
+
 More days will be added as I continue learning React. 🚀
