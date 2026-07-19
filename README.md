@@ -52,6 +52,8 @@
 
     useEffect Hook, Handle Side Effects, API Call, Intervals, Event Listeners
 
+## Day 13
 
+    React Mini E-Commerce Project
 
 More days will be added as I continue learning React. 🚀
