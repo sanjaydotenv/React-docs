@@ -8,6 +8,7 @@ const App = () => {
 
   console.log("Re-render");
   console.log(flag);
+  
 
   return (
     <div>
