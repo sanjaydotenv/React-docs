@@ -5,6 +5,7 @@ import FormHandlingBetterApproach from "./components/FormHandlingBetterApproach"
 import FormHandlingOptimizeApproach from "./components/FormHandlingOptimizeApproach";
 
 const App = () => {
+  
   return (
     <div className="bg-black text-white h-full flex flex-col gap-10 p-5">
       
