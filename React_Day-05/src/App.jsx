@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ProductCard from "./components/ProductCard";
 
 const App = () => {
+  
   const [productsData, setProductsData] = useState([
     {
       id: "PRD-1001",
