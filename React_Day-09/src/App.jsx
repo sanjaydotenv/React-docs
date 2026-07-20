@@ -9,6 +9,7 @@ const App = () => {
   const [userData, setUserData] = useState([]);
 
   return (
+    
     <div className="bg-gray-100 h-screen flex flex-col overflow-hidden">
       <div>
         <Navbar setToggle={setToggle} />
