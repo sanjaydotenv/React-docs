@@ -94,4 +94,10 @@ Live Link: https://react-docs-18qt.vercel.app/
 
 Live Link: https://react-docs-wfml.vercel.app/
 
+## Day 17
+
+    React Folder Structure Use, Hook, Layout, Routes, Context, Config, Pages,
+
+Live Link:
+
 More days will be added as I continue learning React. 🚀
