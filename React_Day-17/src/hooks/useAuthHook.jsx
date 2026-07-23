@@ -40,7 +40,7 @@ export const useAuthHook = () => {
     );
 
     if (!isRegisteredUser) {
-      alert("use not found");
+      toast.error("User Not Found Invalid Credentials");
       return;
     }
 
