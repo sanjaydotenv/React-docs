@@ -100,4 +100,18 @@ Live Link: https://react-docs-wfml.vercel.app/
 
 Live Link: https://react-docs-zq6v.vercel.app/
 
+## Day 18 
+
+    E-comm Project
+
+Live Link: Processing
+
+## Day 19 
+
+    Redux, Store, Actions, Payload, Type, Reducers, useSelector, useDispatch
+
+Live Link:
+
+
+
 More days will be added as I continue learning React. 🚀
