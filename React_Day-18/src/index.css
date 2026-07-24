@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+
+:root {
+  /* =========================
+      BACKGROUND COLORS
+  ========================== */
+
+  --bg-primary: #09090F;
+  --bg-secondary: #11111B;
+  --bg-tertiary: #151521;
+  --bg-card: #181824;
+  --bg-glass: rgba(255, 255, 255, 0.03);
+
+  /* =========================
+      TEXT COLORS
+  ========================== */
+
+  --text-primary: #F5F5F7;
+  --text-secondary: #B8B8C7;
+  --text-muted: #8A8AA0;
+  --text-disabled: #7D7D93;
+
+  /* =========================
+      PRIMARY BRAND COLORS
+  ========================== */
+
+  --primary: #7C4DFF;
+  --primary-light: #9C6BFF;
+  --primary-lighter: #B06CFF;
+
+  --secondary: #4F7DFF;
+  --secondary-light: #6C9CFF;
+
+  /* =========================
+      BORDER COLORS
+  ========================== */
+
+  --border: #2A2A3A;
+  --border-light: rgba(255, 255, 255, 0.08);
+  --border-glass: rgba(255, 255, 255, 0.06);
+
+  /* =========================
+      ICON COLORS
+  ========================== */
+
+  --icon-primary: #FFFFFF;
+  --icon-secondary: #B8B8C7;
+  --icon-accent: #7C4DFF;
+
+  /* =========================
+      BUTTON COLORS
+  ========================== */
+
+  --btn-text: #FFFFFF;
+
+  --btn-gradient: linear-gradient(
+    90deg,
+    #4F7DFF 0%,
+    #7C4DFF 50%,
+    #B06CFF 100%
+  );
+
+  /* =========================
+      GRADIENTS
+  ========================== */
+
+  --gradient-primary: linear-gradient(
+    90deg,
+    #4F7DFF,
+    #7C4DFF,
+    #B06CFF
+  );
+
+  --gradient-card: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.01)
+  );
+
+  --gradient-bg: radial-gradient(
+    circle,
+    rgba(124, 77, 255, 0.25),
+    transparent 70%
+  );
+
+  /* =========================
+      GLOW COLORS
+  ========================== */
+
+  --glow-purple: rgba(124, 77, 255, 0.25);
+  --glow-blue: rgba(79, 125, 255, 0.25);
+  --glow-white: rgba(255, 255, 255, 0.08);
+
+  /* =========================
+      SHADOWS
+  ========================== */
+
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+  --shadow-button: 0 10px 35px rgba(124, 77, 255, 0.35);
+
+  --shadow-purple: 0 0 40px rgba(124, 77, 255, 0.25);
+
+  /* =========================
+      GLASS EFFECT
+  ========================== */
+
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-blur: blur(15px);
+
+  /* =========================
+      STATUS COLORS
+  ========================== */
+
+  --success: #22C55E;
+  --warning: #FACC15;
+  --danger: #EF4444;
+  --info: #3B82F6;
+}
