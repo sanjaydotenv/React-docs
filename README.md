@@ -104,13 +104,13 @@ Live Link: https://react-docs-zq6v.vercel.app/
 
     E-comm Project
 
-Live Link: Processing
+Live Link: https://react-docs-7epc.vercel.app/
 
 ## Day 19 
 
     Redux, Store, Actions, Payload, Type, Reducers, useSelector, useDispatch
 
-Live Link:
+Live Link: https://react-docs-s84v.vercel.app/
 
 
 
