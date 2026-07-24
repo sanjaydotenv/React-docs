@@ -49,7 +49,9 @@ const RegisterPage = () => {
             placeholder="Full Name"
             className="w-full h-14 rounded-xl border border-[var(--border-glass)] bg-[var(--bg-glass)] px-5 text-[var(--text-primary)] placeholder:text-[var(--text-muted)] outline-none transition-all duration-300 focus:border-[var(--primary)] focus:shadow-[var(--shadow-purple)]"
           />
-          {errors.name && <p className="text-[var(--danger)]">{errors.name.message}</p>}
+          {errors.name && (
+            <p className="text-[var(--danger)]">{errors.name.message}</p>
+          )}
 
           <input
             {...register("email", {
@@ -59,11 +61,18 @@ const RegisterPage = () => {
             placeholder="Email"
             className="w-full h-14 rounded-xl border border-[var(--border-glass)] bg-[var(--bg-glass)] px-5 text-[var(--text-primary)] placeholder:text-[var(--text-muted)] outline-none transition-all duration-300 focus:border-[var(--primary)] focus:shadow-[var(--shadow-purple)]"
           />
-          {errors.email && <p className="text-[var(--danger)]">{errors.email.message}</p>}
+          {errors.email && (
+            <p className="text-[var(--danger)]">{errors.email.message}</p>
+          )}
 
           <input
             {...register("password", {
               required: "Password is requred",
+              pattern: {
+                value:
+                  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
+                message: "Min 6 chars, 1 letter, 1 number & 1 symbol.",
+              },
               minLength: {
                 value: 6,
                 message: "Minimum 6 Characters is Reuiqred",
@@ -77,7 +86,9 @@ const RegisterPage = () => {
             placeholder="Password"
             className="w-full h-14 rounded-xl border border-[var(--border-glass)] bg-[var(--bg-glass)] px-5 text-[var(--text-primary)] placeholder:text-[var(--text-muted)] outline-none transition-all duration-300 focus:border-[var(--primary)] focus:shadow-[var(--shadow-purple)]"
           />
-          {errors.password && <p className="text-[var(--danger)]">{errors.password.message}</p>}
+          {errors.password && (
+            <p className="text-[var(--danger)]">{errors.password.message}</p>
+          )}
 
           <input
             {...register("confirmPassword", {
@@ -87,7 +98,11 @@ const RegisterPage = () => {
             placeholder="Confirm Password"
             className="w-full h-14 rounded-xl border border-[var(--border-glass)] bg-[var(--bg-glass)] px-5 text-[var(--text-primary)] placeholder:text-[var(--text-muted)] outline-none transition-all duration-300 focus:border-[var(--primary)] focus:shadow-[var(--shadow-purple)]"
           />
-          {errors.confirmPassword && <p className="text-[var(--danger)]">{errors.confirmPassword.message}</p>}
+          {errors.confirmPassword && (
+            <p className="text-[var(--danger)]">
+              {errors.confirmPassword.message}
+            </p>
+          )}
         </div>
 
         <button
