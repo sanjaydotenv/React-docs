@@ -1,12 +1,13 @@
 import React from "react";
-import { ArrowRight  } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { NavLink } from "react-router";
 import OverView from "../components/OverView";
 import { ProductHook } from "../hook/useProductHook";
+import Category from "../components/Category";
+import Footer from "../components/Footer";
 
 const HomePage = () => {
-  const { overView } = ProductHook();
-
+  const { overView, productIcon, footerIcon } = ProductHook();
 
   return (
     <section className="relative overflow-hidden text-white">
@@ -91,12 +92,34 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="flex w-[80vw] gap-5">
-          {overView.map((data , idx) => {
-            return <OverView key={idx} data={data} />
-          })}
+        <div className="flex flex-col gap-20">
+          <div className="flex w-[80vw] gap-5">
+            {overView.map((data, idx) => {
+              return <OverView key={idx} data={data} />;
+            })}
+          </div>
+
+          <div className="flex flex-wrap w-[80vw] gap-5 relative">
+            <h1 className="absolute bottom-80 text-2xl font-bold tracking-tight">
+              Shop By{" "}
+              <span
+                className="
+  bg-[image:var(--gradient-primary)]
+  bg-clip-text text-transparent"
+              >
+                Catgeory
+              </span>
+            </h1>
+            {productIcon.map((data, idx) => {
+              return <Category key={idx} data={data} />;
+            })}
+          </div>
         </div>
       </div>
+
+      <hr />
+
+      <Footer />
     </section>
   );
 };

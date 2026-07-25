@@ -97,12 +97,7 @@ const LoginPage = () => {
             Remember Me
           </label>
 
-          <button
-            type="button"
-            className="text-[var(--primary-light)] hover:text-white transition"
-          >
-            Forgot Password?
-          </button>
+          
         </div>
 
         {/* Button */}

@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Laptop,
-  Shirt,
-  Sofa,
-  House,
-  Dumbbell,
-  Gem,
-  ArrowRight,
-  ChevronRight,
-} from "lucide-react";
+
 
 const OverView = ({ data }) => {
   return (
