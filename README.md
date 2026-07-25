@@ -108,12 +108,6 @@ Live Link: https://react-docs-7epc.vercel.app/
 
 ## Day 19
 
-    Redux, Store, Actions, Payload, Type, Reducers, useSelector, useDispatch
-
-Live Link: https://react-docs-s84v.vercel.app/
-
-## Day 20
-
     React Performance Optimization, React.memo, useMemo, useCallback,
 
 Live Link: https://react-docs-pajv.vercel.app/
