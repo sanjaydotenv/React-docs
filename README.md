@@ -110,10 +110,10 @@ Live Link: https://react-docs-7epc.vercel.app/
 
     React Performance Optimization, React.memo, useMemo, useCallback,
 
-Live Link: https://react-docs-pajv.vercel.app/
+Live Link: https://react-docs-s84v.vercel.app/
 
 ## Day 20
 
-    React Dedouncing and Throttling
+    React Dedouncing
 
 More days will be added as I continue learning React. 🚀
