@@ -112,4 +112,8 @@ Live Link: https://react-docs-7epc.vercel.app/
 
 Live Link: https://react-docs-pajv.vercel.app/
 
+## Day 20
+
+    React Dedouncing and Throttling
+
 More days will be added as I continue learning React. 🚀

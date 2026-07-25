@@ -1,37 +1,50 @@
-import React, { useCallback, useMemo, useState } from "react";
-import Home from "./components/Home";
-import About from "./components/About";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const App = () => {
-  console.log("App Rendering...");
+  const [productData, setproductData] = useState([]);
+  const [searchData, setSearchData] = useState(null);
 
-  const [count, setCount] = useState(0);
-  const [user, setUser] = useState({ name: "hello", id: 1 });
+  const getData = async () => {
+    const { data } = await axios.get("https://fakestoreapi.com/products");
+    setproductData(data);
+  };
 
-  const greet = useCallback(() => {
-    console.log("hello good morning");
-  }, []);
+  const filterData = () => {
+    console.log("Rendering...");
+    const data = productData.filter((val) => {
+      return val.title.toLowerCase().includes(searchData.toLowerCase());
+    });
+    setproductData(data);
+  };
 
-  const sum = useMemo(() => {
-    let total = 0;
-    console.log("calculation Running");
-    for (let i = 0; i < 1000; i++) {
-      total += i;
-    }
-    return total;
+  useEffect(() => {
+    if (!searchData) return;
+
+    let timeout = setTimeout(() => {
+      filterData();
+    }, 700);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [searchData]);
+
+  useEffect(() => {
+    getData();
   }, []);
 
   return (
     <div>
-      <h1>count is :- {count}</h1>
-      <h1>Name is :- {user.name}</h1>
-      <h1>Sum is :- {sum}</h1>
-      <button onClick={() => setCount((prev) => prev + 1)}>Increase</button>
-      <button onClick={() => setUser((prev) => ({ ...prev, name: "World" }))}>
-        Change name
-      </button>
-      <Home user={user} />
-      <About greet={greet} />
+      <input
+        onInput={(e) => setSearchData(e.target.value)}
+        style={{ padding: "5px 20px" }}
+        type="text"
+        placeholder="Search Products"
+      />
+      {productData.map((data) => {
+        return <h1 key={data.id}>{data.title}</h1>;
+      })}
     </div>
   );
 };
