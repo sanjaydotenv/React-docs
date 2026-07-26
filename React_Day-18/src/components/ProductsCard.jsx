@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ShoppingCart, Star } from "lucide-react";
-import { ProductHook } from "../hook/useProductHook";
+import { allProducts } from "../context/ProductContext";
 
 const ProductsCard = ({ data }) => {
-  console.log(data)
+
   return (
     <div className="group w-[270px] overflow-hidden rounded-[28px] border border-white/10 bg-[#15151d] transition-all duration-300 hover:-translate-y-2 hover:border-violet-500/40 hover:shadow-[0_20px_50px_rgba(124,77,255,.18)]">
       {/* Image Section */}
@@ -37,14 +37,18 @@ const ProductsCard = ({ data }) => {
             />
           ))}
 
-          <span className="ml-2 text-sm text-gray-400">({data.rating.count})</span>
+          <span className="ml-2 text-sm text-gray-400">
+            ({data.rating.count})
+          </span>
         </div>
 
         <hr className="border-white/10" />
 
         {/* Price + Button */}
         <div className="flex items-center justify-between">
-          <h3 className="text-2xl font-bold text-[var(--primary)]">${data.price}</h3>
+          <h3 className="text-2xl font-bold text-[var(--primary)]">
+            ${data.price}
+          </h3>
 
           <button
             className="

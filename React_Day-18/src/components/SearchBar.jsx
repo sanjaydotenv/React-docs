@@ -2,7 +2,17 @@ import React from "react";
 import { ProductHook } from "../hook/useProductHook";
 
 const SearchBar = () => {
-  const { selectedCategory, setSelectedCategory } = ProductHook();
+  const {
+    selectedCategory,
+    setSelectedCategory,
+    handleSearchProducts,
+    productData,
+  } = ProductHook();
+
+  let sum = 0;
+  productData.forEach((val) => {
+    sum += 1;
+  });
 
   return (
     <div>
@@ -12,7 +22,7 @@ const SearchBar = () => {
           All Products
         </h1>
 
-        <p className="mt-2 text-[var(--text-secondary)]">50 Products Found</p>
+        <p className="mt-2 text-[var(--text-secondary)]">{sum} Products Found</p>
       </div>
 
       {/* Search Bar */}
@@ -47,6 +57,7 @@ const SearchBar = () => {
               </svg>
 
               <input
+                onInput={handleSearchProducts}
                 type="text"
                 placeholder="Search products..."
                 className="

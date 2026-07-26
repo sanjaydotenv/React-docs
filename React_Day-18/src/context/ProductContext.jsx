@@ -681,6 +681,8 @@ export const ProductContextProvider = ({ children }) => {
 
   const [productData, setProductData] = useState([]);
 
+  const [searchProducts, setSearchProducts] = useState("");
+
   return (
     <ProductContext.Provider
       value={{
@@ -691,6 +693,8 @@ export const ProductContextProvider = ({ children }) => {
         selectedCategory,
         setSelectedCategory,
         allProducts,
+        searchProducts,
+        setSearchProducts
       }}
     >
       {children}
