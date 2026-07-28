@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useMemo, useState } from "react";
 import {
   ChartLine,
   PackageSearch,
@@ -7,13 +7,8 @@ import {
   Laptop,
   Shirt,
   Sofa,
-  House,
   Dumbbell,
-  Gem,
-  ArrowRight,
-  ChevronRight,
-  Smartphone,
-  UtensilsCrossed,
+  Watch,
 } from "lucide-react";
 
 export const ProductContext = createContext();
@@ -617,84 +612,110 @@ export const allProducts = [
 ];
 
 export const ProductContextProvider = ({ children }) => {
-  const [overView, setOverView] = useState([
-    {
-      count: 0,
-      category: "Cart Items",
-      title: "in your bag",
-      icon: <PackageSearch />,
-    },
-    {
-      count: 0.0,
-      category: "Cart Value",
-      title: "Ready to Checkout",
-      icon: <ChartLine />,
-    },
-    {
-      count: 5,
-      category: "Top Products",
-      title: "Highly rated",
-      icon: <Star />,
-    },
-    {
-      count: 6,
-      category: "Categories",
-      title: "To explore",
-      icon: <Tag />,
-    },
-  ]);
+  const productIcon = useMemo(() => {
+    const definitions = [
+      { icon: <Shirt />, title: "Fashion" },
+      { icon: <Laptop />, title: "Electronics" },
+      { icon: <Sofa />, title: "Home" },
+      { icon: <Dumbbell />, title: "Sports" },
+      { icon: <Watch />, title: "Accessories" },
+    ];
 
-  const [productIcon, setProductIcon] = useState([
-    {
-      icon: <Shirt />,
-      title: "Fashion",
-      item: "16 Items",
-    },
-    {
-      icon: <Laptop />,
-      title: "Electronics",
-      item: "12 Items",
-    },
-    {
-      icon: <Smartphone />,
-      title: "Mobiles",
-      item: "10 Items",
-    },
-    {
-      icon: <Sofa />,
-      title: "Furniture",
-      item: "8 Items",
-    },
-    {
-      icon: <UtensilsCrossed />,
-      title: "Kitchen",
-      item: "14 Items",
-    },
-    {
-      icon: <Gem />,
-      title: "Jewellery",
-      item: "9 Items",
-    },
-  ]);
+    return definitions.map((def) => ({
+      ...def,
+      item: `${allProducts.filter((p) => p.category === def.title).length} Items`,
+    }));
+  }, []);
 
   const [selectedCategory, setSelectedCategory] = useState("all");
-
-  const [productData, setProductData] = useState([]);
-
   const [searchProducts, setSearchProducts] = useState("");
+
+  const [cartItems, setCartItems] = useState(() => {
+    try {
+      const storedCart = localStorage.getItem("cart");
+      return storedCart ? JSON.parse(storedCart) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  const filteredProducts = useMemo(() => {
+    const query = searchProducts.trim().toLowerCase();
+
+    return allProducts.filter((product) => {
+      const matchesCategory =
+        selectedCategory === "all" || product.category === selectedCategory;
+      const matchesSearch =
+        query === "" || product.title.toLowerCase().includes(query);
+
+      return matchesCategory && matchesSearch;
+    });
+  }, [selectedCategory, searchProducts]);
+
+  const cartCount = useMemo(
+    () => cartItems.reduce((sum, item) => sum + item.quantity, 0),
+    [cartItems],
+  );
+
+  const cartSubtotal = useMemo(
+    () => cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0),
+    [cartItems],
+  );
+
+  const overView = useMemo(
+    () => [
+      {
+        count: cartCount,
+        category: "Cart Items",
+        title: "in your bag",
+        icon: <PackageSearch />,
+      },
+      {
+        count: `$${cartSubtotal.toFixed(2)}`,
+        category: "Cart Value",
+        title: "Ready to Checkout",
+        icon: <ChartLine />,
+      },
+      {
+        count: allProducts.filter((p) => p.rating.rate >= 4.8).length,
+        category: "Top Products",
+        title: "Highly rated",
+        icon: <Star />,
+      },
+      {
+        count: productIcon.length,
+        category: "Categories",
+        title: "To explore",
+        icon: <Tag />,
+      },
+    ],
+    [cartCount, cartSubtotal, productIcon],
+  );
+
+  const removeFromCart = (id) => {
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
+  };
 
   return (
     <ProductContext.Provider
       value={{
         overView,
         productIcon,
-        setProductData,
-        productData,
+        filteredProducts,
         selectedCategory,
         setSelectedCategory,
         allProducts,
         searchProducts,
-        setSearchProducts
+        setSearchProducts,
+        cartItems,
+        setCartItems,
+        removeFromCart,
+        cartCount,
+        cartSubtotal,
       }}
     >
       {children}

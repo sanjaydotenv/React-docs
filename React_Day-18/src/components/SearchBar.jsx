@@ -6,13 +6,9 @@ const SearchBar = () => {
     selectedCategory,
     setSelectedCategory,
     handleSearchProducts,
-    productData,
+    searchProducts,
+    filteredProducts,
   } = ProductHook();
-
-  let sum = 0;
-  productData.forEach((val) => {
-    sum += 1;
-  });
 
   return (
     <div>
@@ -22,7 +18,9 @@ const SearchBar = () => {
           All Products
         </h1>
 
-        <p className="mt-2 text-[var(--text-secondary)]">{sum} Products Found</p>
+        <p className="mt-2 text-[var(--text-secondary)]">
+          {filteredProducts.length} Products Found
+        </p>
       </div>
 
       {/* Search Bar */}
@@ -57,7 +55,8 @@ const SearchBar = () => {
               </svg>
 
               <input
-                onInput={handleSearchProducts}
+                value={searchProducts}
+                onChange={handleSearchProducts}
                 type="text"
                 placeholder="Search products..."
                 className="
@@ -80,6 +79,7 @@ const SearchBar = () => {
 
             {/* Category */}
             <select
+              value={selectedCategory}
               onChange={(e) => {
                 setSelectedCategory(e.target.value);
               }}
@@ -104,25 +104,6 @@ const SearchBar = () => {
             </select>
 
             {/* Sort */}
-            <select
-              className="
-      w-52
-      rounded-2xl
-      border
-      border-white/10
-      bg-[#1a1a20]
-      px-5
-      py-4
-      text-white
-      outline-none
-    "
-            >
-              <option>Featured</option>
-            </select>
-          </div>
-
-          <div>
-            <p></p>
           </div>
         </div>
       </div>

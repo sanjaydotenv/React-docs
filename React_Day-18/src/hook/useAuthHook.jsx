@@ -6,9 +6,8 @@ import { toast } from "react-toastify";
 
 export const AuthHook = () => {
   const navigate = useNavigate();
-  const { registerUsers, setRegisterUsers } = useContext(AuthContextAPI);
-
-  console.log(registerUsers);
+  const { registerUsers, setRegisterUsers, setCurrentUser, currentUser } =
+    useContext(AuthContextAPI);
 
   const {
     register,
@@ -18,15 +17,18 @@ export const AuthHook = () => {
   } = useForm();
 
   const loginFormSubmit = (data) => {
-    const isUserExists = registerUsers.find(
-      (user) => user.email === data.email && user.password === data.password,
+    const user = registerUsers.find(
+      (u) => u.email === data.email && u.password === data.password,
     );
 
-    if (!isUserExists) {
-      toast.error("Invalid Credentials User Not Found");
+    if (!user) {
+      toast.error("Invalid Credentials, User Not Found");
       return;
     }
-    navigate("/mainlayout")
+
+    setCurrentUser({ name: user.name, email: user.email });
+    toast.success("Logged in successfully");
+    navigate("/mainlayout");
   };
 
   const registerFormSubmit = (data) => {
@@ -40,12 +42,14 @@ export const AuthHook = () => {
     }
 
     if (data.password !== data.confirmPassword) {
-      toast.warning("Please confirm your password.");
+      toast.warning("Passwords do not match.");
       return;
     }
-    let obj = [...registerUsers, data];
-    setRegisterUsers(obj);
-    localStorage.setItem("registerUsers", JSON.stringify(obj));
+
+    const updatedUsers = [...registerUsers, data];
+    setRegisterUsers(updatedUsers);
+    localStorage.setItem("registerUsers", JSON.stringify(updatedUsers));
+    setCurrentUser({ name: data.name, email: data.email });
     toast.success("Registered Successfully");
     reset();
     navigate("/mainlayout");
@@ -61,5 +65,6 @@ export const AuthHook = () => {
     errors,
     loginFormSubmit,
     registerFormSubmit,
+    currentUser,
   };
 };

@@ -1,67 +1,80 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
-import { axiosInstance } from "../config/ProductsData";
 
 export const ProductHook = () => {
   const {
     overView,
     productIcon,
-    footerIcon,
-    productData,
-    setProductData,
+    filteredProducts,
     selectedCategory,
     setSelectedCategory,
     allProducts,
     searchProducts,
     setSearchProducts,
+    setCartItems,
+    cartItems,
+    removeFromCart,
+    cartCount,
+    cartSubtotal,
   } = useContext(ProductContext);
-
-  const ProductCall = async () => {
-    const { data } = await axiosInstance.get("/products");
-    const finalProducts = [...data, ...allProducts];
-    setProductData(finalProducts);
-  };
-
-  useEffect(() => {
-    ProductCall();
-  }, []);
 
   const handleSearchProducts = (e) => {
     setSearchProducts(e.target.value);
   };
 
-  useEffect(() => {
-    let productTimeout = setTimeout(() => {
-      const searchedData = allProducts.filter((product) => {
-        return product.title
-          .toLowerCase()
-          .includes(searchProducts.toLowerCase());
-      });
+  const addToCart = (id) => {
+    const product = allProducts.find((item) => item.id === id);
 
-      if (searchedData.length > 0) {
+    if (!product) return;
 
-        setProductData(searchedData);
-      }else {
-        setProductData([])
+    setCartItems((prev) => {
+      const exist = prev.find((item) => item.id === id);
+
+      if (exist) {
+        return prev.map((item) =>
+          item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
+        );
       }
 
-    }, 500);
+      return [...prev, { ...product, quantity: 1 }];
+    });
+  };
 
-    return () => clearTimeout(productTimeout);
-  }, [searchProducts]);
+  const increaseQty = (id) => {
+    setCartItems((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
+      ),
+    );
+  };
 
+  const decreaseQty = (id) => {
+    setCartItems((prev) =>
+      prev
+        .map((item) =>
+          item.id === id ? { ...item, quantity: item.quantity - 1 } : item,
+        )
+        .filter((item) => item.quantity > 0),
+    );
+  };
 
   return {
     overView,
     productIcon,
-    footerIcon,
-    productData,
+    filteredProducts,
     selectedCategory,
     setSelectedCategory,
     allProducts,
     searchProducts,
     setSearchProducts,
-    setProductData,
     handleSearchProducts,
+    setCartItems,
+    cartItems,
+    addToCart,
+    increaseQty,
+    decreaseQty,
+    removeFromCart,
+    cartCount,
+    cartSubtotal,
   };
 };

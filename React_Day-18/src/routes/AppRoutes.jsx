@@ -7,6 +7,8 @@ import MainLayout from "../layout/MainLayout";
 import HomePage from "../pages/HomePage";
 import ShopPage from "../pages/ShopPage";
 import AboutPage from "../pages/AboutPage";
+import Cart from "../components/Cart";
+import PrivateRoute from "./PrivateRoute";
 
 const AppRoutes = () => {
   const router = createBrowserRouter([
@@ -19,29 +21,37 @@ const AppRoutes = () => {
           element: <LoginPage />,
         },
         {
-          path: "/register",
+          path: "register",
           element: <RegisterPage />,
         },
       ],
     },
     {
       path: "/mainlayout",
-      element: <MainLayout />,
+      element: (
+        <PrivateRoute>
+          <MainLayout />
+        </PrivateRoute>
+      ),
       children: [
         {
           path: "",
-          element: <HomePage />
+          element: <HomePage />,
         },
         {
           path: "shop",
-          element: <ShopPage />
+          element: <ShopPage />,
         },
         {
           path: "about",
-          element: <AboutPage />
-        }
-      ]
-    }
+          element: <AboutPage />,
+        },
+        {
+          path: "cart",
+          element: <Cart />,
+        },
+      ],
+    },
   ]);
 
   return <RouterProvider router={router} />;

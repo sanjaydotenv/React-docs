@@ -3,7 +3,7 @@ import React from "react";
 
 const OverView = ({ data }) => {
   return (
-    <div className="w-[20vw] rounded-3xl border border-white/10 bg-[#121212] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--primary)] hover:shadow-[0_0_30px_rgba(180,255,0,.08)]">
+    <div className="w-full sm:w-[280px] flex-1 min-w-[220px] rounded-3xl border border-white/10 bg-[#121212] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--primary)] hover:shadow-[0_0_30px_rgba(180,255,0,.08)]">
       <div className="flex items-center gap-5">
         {/* Icon */}
 
