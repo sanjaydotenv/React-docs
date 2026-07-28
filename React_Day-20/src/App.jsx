@@ -2,16 +2,22 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const App = () => {
+
   const [productData, setproductData] = useState([]);
   const [searchData, setSearchData] = useState(null);
+  const [scrollY, seScrollY] = useState(null);
 
   const getData = async () => {
     const { data } = await axios.get("https://fakestoreapi.com/products");
     setproductData(data);
   };
 
+  useEffect(() => {
+    getData();
+  }, []);
+
   const filterData = () => {
-    console.log("Rendering...");
+    console.log("Search Rendering...");
     const data = productData.filter((val) => {
       return val.title.toLowerCase().includes(searchData.toLowerCase());
     });
@@ -30,8 +36,26 @@ const App = () => {
     };
   }, [searchData]);
 
+
+
+  let throttle = false;
+
   useEffect(() => {
-    getData();
+    let handleScroll = () => {
+      if (throttle) return;
+
+      throttle = true;
+      console.log("Scroll Triggered...");
+      seScrollY(window.scrollY);
+
+      setTimeout(() => {
+        throttle = false;
+      }, 3000);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (

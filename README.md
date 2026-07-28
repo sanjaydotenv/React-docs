@@ -114,6 +114,6 @@ Live Link: https://react-docs-s84v.vercel.app/
 
 ## Day 20
 
-    React Dedouncing
+    React Performance Optimization, Dedouncing, Throttling, Code Splitting
 
 More days will be added as I continue learning React. 🚀
