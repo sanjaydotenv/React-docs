@@ -224,46 +224,6 @@ It follows a clean folder structure and emphasizes scalability, maintainability,
 
 ---
 
-# 📦 Installation
-
-Clone the repository
-
-```bash
-git clone <repository-url>
-```
-
-Go to project folder
-
-```bash
-cd React_Day-18
-```
-
-Install dependencies
-
-```bash
-npm install
-```
-
-Run development server
-
-```bash
-npm run dev
-```
-
-Build production version
-
-```bash
-npm run build
-```
-
-Preview production build
-
-```bash
-npm run preview
-```
-
----
-
 # 💻 Author
 
 ## Sanjay Bairagi
