@@ -116,4 +116,6 @@ Live Link: https://react-docs-s84v.vercel.app/
 
     React Performance Optimization, Dedouncing, Throttling, Code Splitting
 
+Live Link: https://react-docs-49e1.vercel.app/
+
 More days will be added as I continue learning React. 🚀
